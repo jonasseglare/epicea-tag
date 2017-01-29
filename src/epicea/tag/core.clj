@@ -1,6 +1,23 @@
-(ns epicea-tag.core)
+(ns epicea.tag.core)
 
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
+(defn tagged?
+  ([tag] 
+   (fn [x]
+     (tagged? tag x)))
+  ([tag x]
+   (if (vector? x)
+     (let [[a b] x]
+       (= a tag)))))
+
+(defn value [x]
+  (second x))
+
+(defn tag 
+  ([t x] [t x])
+  ([t] (fn [x] (tag t x))))
+
+;;; Convenience definitions  
+(def tag-success (tag :success))
+(def tag-failure (tag :failure))
+(def success? (tagged? :success))
+(def failure? (tagged? :failure))
