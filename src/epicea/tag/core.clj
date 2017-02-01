@@ -9,6 +9,10 @@
      (let [[a b] x]
        (= a tag)))))
 
+(defn pair? [x]
+  (and (vector? x)
+       (= 2 (count x))))
+
 (defn value [x]
   (second x))
 
