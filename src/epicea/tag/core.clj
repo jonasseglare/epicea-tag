@@ -20,6 +20,9 @@
   ([t x] [t x])
   ([t] (fn [x] (tag t x))))
 
+(defn get-tag [x]
+  (first x))
+
 ;;; Convenience definitions  
 (def tag-success (tag :success))
 (def tag-failure (tag :failure))
