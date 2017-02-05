@@ -23,6 +23,10 @@
 (defn get-tag [x]
   (first x))
 
+(defn tag-like [proto x]
+  (tag (get-tag proto) x))
+
+
 ;;; Convenience definitions  
 (def tag-success (tag :success))
 (def tag-failure (tag :failure))
